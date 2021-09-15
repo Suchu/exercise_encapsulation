@@ -32,20 +32,27 @@ public class Student {
     }
 
     public void upgrade() {
-        for (int i : studentGrade) {
-            if (i == studentGrade.length) {
-                grade = studentGrade[i];
+
+        for (int i = 0; i < studentGrade.length; i++) {
+            if (studentGrade[i] == grade && i != studentGrade.length -1) {
+                grade = studentGrade[i + 1];
+                break;
             }
         }
+        System.out.println("Upgraded to: " + grade);
     }
 
     public void downgrade() {
-        for (int i : studentGrade) {
-            if (i == studentGrade.length) {
+        for (int i = 0; i < studentGrade.length; i++) {
+            if (studentGrade[i] == grade && i != 0 ) {
+                System.out.println("Test" + studentGrade[i]);
                 grade = studentGrade[i - 1];
+                break;
             }
         }
+        System.out.println("Downgraded to: " + grade);
     }
+
 
     public static void main(String[] args) {
         Student student = new Student("Michelle", 'B', 1);
@@ -53,5 +60,10 @@ public class Student {
         System.out.println("Grade: " + student.getGrade());
         System.out.println("Group: " + student.getGroup());
         System.out.println("Nickname: " + student.secretNickName);
+        student.upgrade();
+        student.downgrade();
+
+
+
     }
 }
