@@ -3,7 +3,7 @@ package com.company;
 public class Student {
 
     protected String name;
-    protected char[] studentGrade = { 'A', 'B', 'C', 'D' };
+    protected char[] studentGrade = { 'A', 'B', 'C', 'D', 'E', 'F' };
     protected char grade;
     protected int group;
     private String secretNickName;
@@ -27,32 +27,29 @@ public class Student {
         return group;
     }
 
-    public void setSecretNickName(String secretNickName) {
-        this.secretNickName = "MySecretNickName";
+    public void setSecretNickName(String myNickName) {
+        this.secretNickName = myNickName;
     }
 
     public void upgrade() {
-
         for (int i = 0; i < studentGrade.length; i++) {
-            if (studentGrade[i] == grade && i != studentGrade.length -1) {
+            if (studentGrade[i] == grade && i != studentGrade.length - 1) {
                 grade = studentGrade[i + 1];
                 break;
             }
         }
-        System.out.println("Upgraded to: " + grade);
+
     }
 
     public void downgrade() {
-        for (int i = 0; i < studentGrade.length; i++) {
-            if (studentGrade[i] == grade && i != 0 ) {
-                System.out.println("Test" + studentGrade[i]);
+        System.out.println("grade: " + grade);
+        for (int i = 0; i <= studentGrade.length; i++) {
+            if (studentGrade[i] == grade && i != 0) {
                 grade = studentGrade[i - 1];
                 break;
             }
         }
-        System.out.println("Downgraded to: " + grade);
     }
-
 
     public static void main(String[] args) {
         Student student = new Student("Michelle", 'B', 1);
@@ -61,9 +58,8 @@ public class Student {
         System.out.println("Group: " + student.getGroup());
         System.out.println("Nickname: " + student.secretNickName);
         student.upgrade();
+        System.out.println("Upgraded to: " + student.getGrade());
         student.downgrade();
-
-
-
+        System.out.println("Downgraded to: " + student.getGrade());
     }
 }
