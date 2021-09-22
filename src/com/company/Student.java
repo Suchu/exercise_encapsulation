@@ -34,7 +34,7 @@ public class Student {
 
     public void upgradeGrade() {
         for (int i = 0; i < grade.length; i++) {
-            if (grade[i] == currentGrade && currentGrade != grade[grade.length - 1]) {
+            if (grade[i] == currentGrade && i != grade.length - 1) {
                 char downgrade = grade[i + 1];
                 System.out.println("Downgraded To: " + downgrade);
             }
@@ -43,7 +43,7 @@ public class Student {
 
     public void downgradeGrade() {
         for (int i = 0; i < grade.length; i++) {
-            if (grade[i] == currentGrade && currentGrade != grade[0]) {
+            if (grade[i] == currentGrade && i != 0) {
                 char upgrade = grade[i - 1];
                 System.out.println("Upgraded To: " + upgrade);
             }
