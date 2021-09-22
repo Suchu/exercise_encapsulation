@@ -32,7 +32,7 @@ public class Student {
         return group;
     }
 
-    public void upgrade() {
+    public void upgradeGrade() {
         for (int i = 0; i < grade.length; i++) {
             if (grade[i] == currentGrade && currentGrade != grade[grade.length - 1]) {
                 char downgrade = grade[i + 1];
@@ -41,7 +41,7 @@ public class Student {
         }
     }
 
-    public void downgrade() {
+    public void downgradeGrade() {
         for (int i = 0; i < grade.length; i++) {
             if (grade[i] == currentGrade && currentGrade != grade[0]) {
                 char upgrade = grade[i - 1];

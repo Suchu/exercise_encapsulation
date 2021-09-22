@@ -6,7 +6,7 @@ public class Main {
         System.out.println("Name: " + student.getName());
         System.out.println("Current Grade: " + student.getGrade());
         System.out.println("Group: " + student.getGroup());
-        student.downgrade();
-        student.upgrade();
+        student.downgradeGrade();
+        student.upgradeGrade();
     }
 }
