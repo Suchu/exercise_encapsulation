@@ -2,16 +2,27 @@ package com.company;
 
 public class Student {
 
-    protected String name;
     private final char[] studentGrade = {'A', 'B', 'C', 'D', 'E', 'F'};
-    private char grade;
+    private final String secretNickName = "MySecretNickName";
+    protected String name;
     protected int group;
-    private String secretNickName;
+    private char grade;
 
     public Student(String name, char grade, int group) {
         this.name = name;
         this.grade = grade;
         this.group = group;
+    }
+
+    public static void main(String[] args) {
+        Student student = new Student("Michelle", 'A', 1);
+        System.out.println("Name: " + student.getName());
+        System.out.println("Grade: " + student.getGrade());
+        System.out.println("Group: " + student.getGroup());
+        student.upgrade();
+        System.out.println("Upgraded to: " + student.getGrade());
+        student.downgrade();
+        System.out.println("Downgraded to: " + student.getGrade());
     }
 
     public String getName() {
@@ -24,14 +35,6 @@ public class Student {
 
     public int getGroup() {
         return group;
-    }
-
-    public String getSecretNickName() {
-        return secretNickName;
-    }
-
-    public void setSecretNickName(String mySecretNickName) {
-        this.secretNickName = mySecretNickName;
     }
 
     public void upgrade() {
@@ -50,18 +53,5 @@ public class Student {
                 return;
             }
         }
-    }
-
-    public static void main(String[] args) {
-        Student student = new Student("Michelle", 'A', 1);
-        System.out.println("Name: " + student.getName());
-        System.out.println("Grade: " + student.getGrade());
-        System.out.println("Group: " + student.getGroup());
-        student.setSecretNickName("Coco");
-        System.out.println("Nick Name: " + student.getSecretNickName());
-        student.upgrade();
-        System.out.println("Upgraded to: " + student.getGrade());
-        student.downgrade();
-        System.out.println("Downgraded to: " + student.getGrade());
     }
 }
