@@ -25,18 +25,6 @@ public class Student {
     }
 
     public char getGrade() {
-        for (int i = 0; i < grade.length; i++) {
-            if (grade[i] == currentGrade) {
-                if (currentGrade != grade[0]) {
-                    char upgrade = grade[i - 1];
-                    System.out.println("Upgraded To: " + upgrade);
-                }
-                if (currentGrade != grade[grade.length - 1]) {
-                    char downgrade = grade[i + 1];
-                    System.out.println("Downgraded To: " + downgrade);
-                }
-            }
-        }
         return currentGrade;
     }
 
@@ -44,10 +32,30 @@ public class Student {
         return group;
     }
 
+    public void upgrade() {
+        for (int i = 0; i < grade.length; i++) {
+            if (grade[i] == currentGrade && currentGrade != grade[grade.length - 1]) {
+                char downgrade = grade[i + 1];
+                System.out.println("Downgraded To: " + downgrade);
+            }
+        }
+    }
+
+    public void downgrade() {
+        for (int i = 0; i < grade.length; i++) {
+            if (grade[i] == currentGrade && currentGrade != grade[0]) {
+                char upgrade = grade[i - 1];
+                System.out.println("Upgraded To: " + upgrade);
+            }
+        }
+    }
+
     public static void main(String[] args) throws Exception {
-        Student student = new Student("Michelle", 'B', 1);
+        Student student = new Student("Michelle", 'F', 1);
         System.out.println("Name: " + student.getName());
         System.out.println("Current Grade: " + student.getGrade());
         System.out.println("Group: " + student.getGroup());
+        student.downgrade();
+        student.upgrade();
     }
 }
