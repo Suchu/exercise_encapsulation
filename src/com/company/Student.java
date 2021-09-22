@@ -5,8 +5,8 @@ public class Student {
     private final String secretNickName = "MySecretNickName";
     private final char[] grade = {'A', 'B', 'C', 'D', 'E', 'F'};
     private final char currentGrade;
-    protected String name;
-    protected int group;
+    private final String name;
+    private final int group;
 
     public Student(String name, char currentGrade, int group) throws Exception {
         this.name = name;
@@ -48,14 +48,5 @@ public class Student {
                 System.out.println("Upgraded To: " + upgrade);
             }
         }
-    }
-
-    public static void main(String[] args) throws Exception {
-        Student student = new Student("Michelle", 'F', 1);
-        System.out.println("Name: " + student.getName());
-        System.out.println("Current Grade: " + student.getGrade());
-        System.out.println("Group: " + student.getGroup());
-        student.downgrade();
-        student.upgrade();
     }
 }
