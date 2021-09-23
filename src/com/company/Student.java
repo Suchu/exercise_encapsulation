@@ -4,7 +4,7 @@ public class Student {
 
     private final String secretNickName = "MySecretNickName";
     private final char[] grade = {'A', 'B', 'C', 'D', 'E', 'F'};
-    private final char currentGrade;
+    private char currentGrade;
     private final String name;
     private final int group;
 
@@ -34,18 +34,22 @@ public class Student {
 
     public void upgradeGrade() {
         for (int i = 0; i < grade.length; i++) {
-            if (grade[i] == currentGrade && i != grade.length - 1) {
-                char downgrade = grade[i + 1];
-                System.out.println("Downgraded To: " + downgrade);
+            if (grade[i] == currentGrade && i != 0) {
+                currentGrade = grade[i - 1];
+                return;
+//                char upgrade = grade[i - 1];
+//                System.out.println("Upgraded To: " + upgrade);
             }
         }
     }
 
     public void downgradeGrade() {
         for (int i = 0; i < grade.length; i++) {
-            if (grade[i] == currentGrade && i != 0) {
-                char upgrade = grade[i - 1];
-                System.out.println("Upgraded To: " + upgrade);
+            if (grade[i] == currentGrade && i != grade.length - 1) {
+                currentGrade = grade[i + 1];
+                return;
+//                char downgrade = grade[i + 1];
+//              System.out.println("Downgraded To: " + downgrade);
             }
         }
     }
